@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <MyNav/>
-    <Container>
+    <Container className='my-3'>
       <Welcome/>
       <AllTheBooks books={fantasy}/>
     </Container>
