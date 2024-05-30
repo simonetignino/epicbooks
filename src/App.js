@@ -5,6 +5,9 @@ import MyNav from './components/MyNav'
 import Welcome from './components/Welcome';
 import AllTheBooks from './components/AllTheBooks';
 import fantasy from './books/fantasy.json'
+import horror from './books/horror.json'
+import romance from './books/romance.json'
+import scifi from './books/scifi.json'
 
 function App() {
   return (
