@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, InputGroup, Row } from 'react-bootstrap';
+import { Form, Row } from 'react-bootstrap';
 import SingleBook from './SingleBook';
 
 export default function AllTheBooks(props) {
@@ -7,7 +7,7 @@ export default function AllTheBooks(props) {
   const [search, setSearch] = useState('');
   return (
     <Row>
-      <Form.Group className='m-3'>
+      <Form.Group className='my-3'>
         <Form.Control 
           type='search'
           placeholder='Cerca un libro...'
