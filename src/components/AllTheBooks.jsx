@@ -17,7 +17,7 @@ export default function AllTheBooks(props) {
       </Form.Group>
       {props.books
       .filter(book => book.title.toLowerCase().includes(search))
-      .map(book => <SingleBook book={book} />)}
+      .map(book => <SingleBook key={book.asin} book={book} />)}
     </Row>
   )
 }
