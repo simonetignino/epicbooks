@@ -3,15 +3,16 @@ import { Card, Col } from "react-bootstrap";
 import { ThemeContext } from "../modules/Context";
 
 export default function SingleBook({ book, selected, setSelected }) {
-  let [themeCtx, setThemeCtx] = useContext(ThemeContext);
+  let [themeCtx] = useContext(ThemeContext);
 
   // const [selected, setSelected] = useState(false);
 
   return (
-    <Col>
+    <Col role={"book-card"}>
       <Card
         bg={themeCtx}
         data-bs-theme={themeCtx}
+        data-testid={book.asin}
         style={{
           height: "550px",
           width: "300px",

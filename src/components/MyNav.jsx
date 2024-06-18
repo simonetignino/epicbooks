@@ -34,12 +34,12 @@ function MyNav({ search, handleSearch }) {
           </Nav>
           <SearchBook search={search} handleSearch={handleSearch} />
           <Button
-            variant={themeCtx}
+            variant={themeCtx === "light" ? "dark" : "light"}
             onClick={() => {
               themeCtx === "light" ? setThemeCtx("dark") : setThemeCtx("light");
             }}
           >
-            {themeCtx}
+            {themeCtx === "light" ? "dark" : "light"}
           </Button>
         </Navbar.Collapse>
       </Container>

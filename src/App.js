@@ -5,11 +5,12 @@ import MyNav from "./components/MyNav";
 import Welcome from "./components/Welcome";
 import AllTheBooks from "./components/AllTheBooks";
 import fantasy from "./books/fantasy.json";
-import horror from "./books/horror.json";
-import romance from "./books/romance.json";
-import scifi from "./books/scifi.json";
+// import horror from "./books/horror.json";
+// import romance from "./books/romance.json";
+// import scifi from "./books/scifi.json";
 import { useState } from "react";
 import { ThemeContext } from "./modules/Context";
+// import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [search, setSearch] = useState("");
