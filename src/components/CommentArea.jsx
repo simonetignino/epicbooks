@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddComment from "./AddComment";
 import CommentList from "./CommentList";
 import { Alert, Spinner } from "react-bootstrap";
+import axios from "../modules/ApiAxios";
 
 const url = "https://striveschool-api.herokuapp.com/api/books/";
 const token =
@@ -17,18 +18,25 @@ export default function CommentArea({ asin }) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(url + asin + "/comments/", {
-      headers: { Authorization: `Bearer ${token}` },
+    // fetch(url + asin + "/comments/", {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setComments(data);
+    //     setIsLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     error && setIsError(true);
+    //     setIsLoading(false);
+    //   });
+    axios.get('/books/' + asin + '/comments/').then(response => {
+      setComments(response.data);
+      setIsLoading(false);
+    }).catch(error => {
+      error && setIsError(true);
+      setIsLoading(false);
     })
-      .then((response) => response.json())
-      .then((data) => {
-        setComments(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        error && setIsError(true);
-        setIsLoading(false);
-      });
   }, [add, asin]);
 
   return (

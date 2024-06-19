@@ -1,3 +1,4 @@
+import axios from "../modules/ApiAxios";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
@@ -30,21 +31,25 @@ export default function AddComment({ elementId, setAdd, add }) {
 
   let sendComment = () => {
     // event.preventDefault();
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(comments),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data)
-        setComments({ comment: "", rate: 0, elementId: elementId });
-        setAdd(!add);
-      })
-      .catch((error) => console.error(error));
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(comments),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // console.log(data)
+    //     setComments({ comment: "", rate: 0, elementId: elementId });
+    //     setAdd(!add);
+    //   })
+    //   .catch((error) => console.error(error));
+    axios.post('/comments/', comments).then(response => {
+      setAdd(!add)
+      setComments({ comment: "", rate: 0, elementId: elementId });
+    }).catch(error => console.error(error))
   };
 
   return (

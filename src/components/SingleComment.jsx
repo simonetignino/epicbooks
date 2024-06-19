@@ -1,3 +1,4 @@
+import axios from "../modules/ApiAxios";
 import React from "react";
 import { Button, ListGroup } from "react-bootstrap";
 
@@ -8,13 +9,16 @@ const token =
 export default function SingleComment({ comment, setAdd, add }) {
   //funzione per rimuovere il commento
   const removeComment = (comment) => {
-    console.log(comment);
-    fetch(url + comment._id, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => response.json())
-      .then((data) => setAdd(!add));
+    // console.log(comment);
+    // fetch(url + comment._id, {
+    //   method: "DELETE",
+    //   headers: { Authorization: `Bearer ${token}` },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => setAdd(!add));
+    axios.delete("/comments/" + comment._id).then(response => {
+      setAdd(!add);
+    }).catch(error => console.error(error))
   };
 
   return (
