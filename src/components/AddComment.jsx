@@ -2,10 +2,6 @@ import axios from "../modules/ApiAxios";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-const url = "https://striveschool-api.herokuapp.com/api/comments/";
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNlMzg4ZDcyYjNlYTAwMTU3MWZjZjAiLCJpYXQiOjE3MTczMjAwNzMsImV4cCI6MTcxODUyOTY3M30.ty0tvN0gXJoMaYLILPozIXpd3J4I1Zm_rlf4cL8XTa4";
-
 export default function AddComment({ elementId, setAdd, add }) {
   const [comments, setComments] = useState({
     comment: "",
@@ -30,22 +26,6 @@ export default function AddComment({ elementId, setAdd, add }) {
   };
 
   let sendComment = () => {
-    // event.preventDefault();
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(comments),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     // console.log(data)
-    //     setComments({ comment: "", rate: 0, elementId: elementId });
-    //     setAdd(!add);
-    //   })
-    //   .catch((error) => console.error(error));
     axios.post('/comments/', comments).then(response => {
       setAdd(!add)
       setComments({ comment: "", rate: 0, elementId: elementId });
